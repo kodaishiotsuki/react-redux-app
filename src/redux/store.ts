@@ -1,7 +1,13 @@
-import { createStore } from "redux";
-import todoReducer from "./reducers";
-import { composeWithDevTools } from "@redux-devtools/extension";
+// Redux ToolkitからconfigureStoreをインポート
+import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from "./slice"; // slice.tsからtodoReducerをインポート
 
-const store = createStore(todoReducer, composeWithDevTools());
+// ストアを設定
+const store = configureStore({
+  reducer: {
+    todo: todoReducer, // todoReducerをtodoスライスのリデューサーとして設定
+  },
+});
 
+// ストアをエクスポート
 export default store;

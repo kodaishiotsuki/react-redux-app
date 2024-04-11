@@ -1,12 +1,16 @@
-import { Provider } from "react-redux";
 import "./App.css";
-import store from "./redux/store";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"; // または適切なルーターコンポーネントをインポート
+import Todo from "./pages/Todo";
 
 function App() {
   return (
-    <Provider store={store}>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </Provider>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/todo" element={<Todo />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
